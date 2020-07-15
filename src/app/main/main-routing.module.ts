@@ -4,7 +4,7 @@ import { AuthGuardService } from 'ontimize-web-ngx';
 
 import { MainComponent } from './main.component';
 import { HomeModule } from './home/home.module';
-import { CustomersModule } from './customers/customers.module'
+import { CustomersModule } from './customers/customers.module';
 
 export function loadHomeModule() {
   return HomeModule;
