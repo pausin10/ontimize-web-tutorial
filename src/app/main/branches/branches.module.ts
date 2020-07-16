@@ -4,6 +4,9 @@ import { OntimizeWebModule } from 'ontimize-web-ngx';
 import { BranchesRoutingModule } from './branches-routing.module';
 import { BranchesHomeComponent } from './branches-home/branches-home.component';
 import { BranchesDetailComponent} from './branches-detail/branches-detail.component';
+import { BranchesNewComponent } from './branches-new/branches-new.component';
+
+
 
 @NgModule({
   imports: [
@@ -13,7 +16,8 @@ import { BranchesDetailComponent} from './branches-detail/branches-detail.compon
   ],
   declarations: [
     BranchesHomeComponent,
-    BranchesDetailComponent
+    BranchesDetailComponent,
+    BranchesNewComponent
   ]
 })
 export class BranchesModule { }
