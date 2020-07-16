@@ -8,11 +8,11 @@ const routes: Routes = [{
   path: '',
   component: CustomersHomeComponent 
 },{
-  path: ':CUSTOMERID',
-  component: CustomersDetailComponent
-},{
   path: 'new',
   component: CustomersNewComponent
+},{
+  path: ':CUSTOMERID',
+  component: CustomersDetailComponent
 }];
 
 @NgModule({
