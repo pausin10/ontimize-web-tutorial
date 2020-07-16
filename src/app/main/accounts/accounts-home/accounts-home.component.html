@@ -8,5 +8,8 @@
    <o-table-column attr="ACCOUNTNUMBER" title="ACCOUNTNUMBER" class="o-table-column-centered">
      <app-account-number-render></app-account-number-render>
    </o-table-column>
+   <o-table-column-calculated attr="INTERESRATE_MONTHLY" title="INTERESRATE_MONTHLY" [operation-function]="intRateMonthly" type="percentage"
+   decimal-separator="," class="o-table-column-centered">
+ </o-table-column-calculated>
   </o-table>
  </div>

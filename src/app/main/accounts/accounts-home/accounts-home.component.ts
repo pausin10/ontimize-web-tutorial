@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
+import { intRateMonthlyFunction } from "../../../shared/shared.module";
 
 @Component({
-  selector: 'app-accounts-home',
-  templateUrl: './accounts-home.component.html',
-  styleUrls: ['./accounts-home.component.scss']
+  selector: "app-accounts-home",
+  templateUrl: "./accounts-home.component.html",
+  styleUrls: ["./accounts-home.component.scss"],
 })
 export class AccountsHomeComponent implements OnInit {
+  public intRateMonthly = intRateMonthlyFunction;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }
