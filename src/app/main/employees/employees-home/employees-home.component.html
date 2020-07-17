@@ -1,14 +1,38 @@
-<o-form-layout-manager title="{{'EMPLOYEES' | oTranslate }}" separator=" " mode="dialog" label-columns="EMPLOYEENAME;EMPLOYEESURNAME">
-  <div fxFlex>
-   <o-table fxFlex attr="employeesTable" service="employees" entity="employee" keys="EMPLOYEEID" 
-     columns="EMPLOYEEID;EMPLOYEENAME;EMPLOYEESURNAME;EMPLOYEEPHOTO;EMPLOYEEADDRESS;EMPLOYEESTARTDATE;EMPLOYEEEMAIL;OFFICEID;EMPLOYEETYPEID"
-     visible-columns="EMPLOYEEPHOTO;EMPLOYEENAME;EMPLOYEESURNAME;EMPLOYEEEMAIL;EMPLOYEEADDRESS;EMPLOYEESTARTDATE" 
-     query-rows="15">
-     <o-table-column attr="EMPLOYEEPHOTO" title="EMPLOYEEPHOTO" orderable="no" searchable="no" type="image" avatar="no" empty-image="assets/images/no-image.png"
-       image-type="base64" width="150px"></o-table-column>
-     <o-table-column attr="EMPLOYEESTARTDATE" title="EMPLOYEESTARTDATE" type="date" format="LL"></o-table-column>
-     <o-table-column attr="EMPLOYEENAME" title="EMPLOYEENAME" width="150px"></o-table-column>
-     <o-table-column attr="EMPLOYEESURNAME" title="EMPLOYEESURNAME" width="150px"></o-table-column>
-   </o-table>
-  </div>
- </o-form-layout-manager>
+<o-grid #grid attr="employees" service="employees" entity="employee"
+  columns="EMPLOYEEID;EMPLOYEETYPEID;EMPLOYEENAME;EMPLOYEESURNAME;EMPLOYEEADDRESS;EMPLOYEESTARTDATE;EMPLOYEEEMAIL;OFFICEID;EMPLOYEEPHOTO;EMPLOYEEPHONE;EMPLOYEECOMMENTS"
+  cols="3" keys="EMPLOYEEID" pageable="no" query-rows="16" fixed-header="yes" >
+  <o-grid-item *ngFor="let item of grid.dataArray">
+    <o-column layout-padding class="container-item">
+      <div fxLayout="column" class="employee-data">
+          <o-image show-controls="no" width="100" data={{item.EMPLOYEEPHOTO}}
+            empty-image="./assets/images/no-image.png"></o-image>
+        <h4 class="name">{{ item.EMPLOYEENAME }} {{ item.EMPLOYEESURNAME }}</h4>
+        <ng-template [ngIf]=item.EMPLOYEEEMAIL>
+          <div class="email">
+            <mat-icon>email</mat-icon><span> {{ item.EMPLOYEEEMAIL }}</span>
+          </div>
+        </ng-template>
+        <ng-template [ngIf]=item.EMPLOYEEPHONE>
+          <div class="phone">
+            <mat-icon>phone</mat-icon><span> {{ item.EMPLOYEEPHONE }}</span>
+          </div>
+        </ng-template>
+        <ng-template [ngIf]=item.EMPLOYEEBRANCH>
+          <span>{{ item.EMPLOYEEBRANCH }}</span>
+        </ng-template>
+        <ng-template [ngIf]=item.EMPLOYEEADDRESS>
+          <div class="address">
+            <mat-icon>home</mat-icon><span> {{ item.EMPLOYEEADDRESS }}</span>
+          </div>
+        </ng-template>
+        <ng-template [ngIf]=item.EMPLOYEECOMMENTS>
+          <div class="address">
+            <mat-icon>comments</mat-icon><span> {{ item.EMPLOYEECOMMENTS }}</span>
+          </div>
+        </ng-template>
+
+
+      </div>
+    </o-column>
+  </o-grid-item>
+</o-grid>

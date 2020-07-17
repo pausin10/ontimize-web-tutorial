@@ -19,4 +19,7 @@ export function intRateMonthlyFunction (rowData: Array<any>): number {
     AccountNumberRenderComponent
   ]
 })
-export class SharedModule { }
+export class SharedModule { 
+  account = AccountNumberRenderComponent;
+
+}
